@@ -21,6 +21,12 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(params.require(:post).permit(:user_id, :title, :description, :condition, :wanted, :status, :category))
+
+		if @post.save
+			redirect_to post_path(@post)
+		else
+			redirect_to new_post_path
+		end
 	end
 
 	def guitars

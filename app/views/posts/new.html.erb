@@ -5,18 +5,18 @@
       <% end %>
 
       <%= f.text_field :title, placeholder: "Title" %>
+<br>
+      <%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']] %>
+<br>
+      <%= f.text_field :description, placeholder: "Description", :size=>"150" %>
+<br>
+      <%= f.text_field :wanted, placeholder: "Items Wanted", :size=>"150" %>
+<br>
+      <!-- drop down men for category -->
 
-      ## drop down condition field
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :status, :value => "Available" %>
 
-      <%= f.text_field :description, placeholder: "Description" %>
 
-      <%= f.text_field :wanted, placeholder: "Items Wanted" %>
-
-      ## drop down category field
-
-      <%= f.hidden_field :user_id, value => current_user.id %>
-      <%= f.hidden_field :status, value => "Available" %>
-      
-
-      <%= f.submit "Signup" %>
+      <%= f.submit "Create Post" %>
 <% end %>

@@ -1,0 +1,5 @@
+<%= @post.title %><br>
+<%= @post.condition %><br>
+<%= @post.description %><br>
+<%= @post.wanted %><br>
+<%= link_to @post.user.username, user_path(@post.user) %>

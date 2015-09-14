@@ -8,6 +8,7 @@
 	<h2>My Posts</h2>
 	<% @posts.each do |post| %>	
 		<div>
+			<%= link_to "See Post", post_path(post) %>
 			<%= post.title %>
 			<%= post.created_at %>
 			<%= post.status %>
