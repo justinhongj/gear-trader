@@ -6,10 +6,22 @@
 
 <div>
 	<h2>My Posts</h2>
-
+	<% @posts.each do |post| %>	
+		<div>
+			<%= post.title %>
+			<%= post.created_at %>
+			<%= post.status %>
+		</div>
+	<% end %>
 </div>
 
 <div>
 	<h2>Watching</h2>
-	
+	<% @watches.each do |watch| %>
+		<div>
+			<%= Post.find_by(id: watch.post_id).title %>
+			<%= Post.find_by(id: watch.post_id).created_at %>
+			<%= Post.find_by(id: watch.post_id).status %>
+		</div>
+	<% end %>
 </div>

@@ -4,29 +4,21 @@
         <div class="<%= key %>" > <%= value %> </div>
       <% end %>
 
-      <%= f.label :username %>
-      <%= f.text_field :username %>
+      <%= f.text_field :username, placeholder: "Username" %>
 
-      <%= f.label :address %>
-      <%= f.text_field :address %>
+      <%= f.text_field :address, placeholder: "Street Address" %>
 
-      <%= f.label :city %>
-      <%= f.text_field :city %>
+      <%= f.text_field :city, placeholder: "City" %>
 
-      <%= f.label :state %>
-      <%= f.text_field :state %>
+      <%= f.text_field :state, placeholder: "State" %>
 
-      <%= f.label :zipcode %>
-      <%= f.text_field :zipcode %>
+      <%= f.text_field :zipcode, placeholder: "Zipcode" %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, placeholder: "Email" %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, placeholder: "Password" %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, placeholder: "Re-type Password" %>
 
       <%= f.submit "Signup" %>
 <% end %>

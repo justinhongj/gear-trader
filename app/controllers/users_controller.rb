@@ -11,11 +11,11 @@ class UsersController < ApplicationController
 	def create
 
 	  if User.create(user_params)
-	    flash[:success] = 'you are registered'
+	    flash[:success] = 'Registration Successful'
 	    redirect_to new_session_path
 	  else
 
-	    flash[:error] = 'registration has failed'
+	    flash[:error] = 'Registration Failed'
 
 	    redirect_to new_session_path
 

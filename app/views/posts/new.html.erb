@@ -1,0 +1,22 @@
+<%= form_for(@post) do |f| %>
+
+      <% flash.each do |key,value|  %>
+        <div class="<%= key %>" > <%= value %> </div>
+      <% end %>
+
+      <%= f.text_field :title, placeholder: "Title" %>
+
+      ## drop down condition field
+
+      <%= f.text_field :description, placeholder: "Description" %>
+
+      <%= f.text_field :wanted, placeholder: "Items Wanted" %>
+
+      ## drop down category field
+
+      <%= f.hidden_field :user_id, value => current_user.id %>
+      <%= f.hidden_field :status, value => "Available" %>
+      
+
+      <%= f.submit "Signup" %>
+<% end %>

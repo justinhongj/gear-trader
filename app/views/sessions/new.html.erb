@@ -1,14 +1,12 @@
 <%= form_for @user, url: create_session_path do |f| %>
 
+	<%= f.email_field :email, placeholder: "Email" %>
+
+	<%= f.password_field :password, placeholder: "Password" %>
+
+	<%= f.submit "Login" %>
+
 	<% flash.each do |key,value|  %>
 	 <div class="<%= key %>" > <%= value %> </div>
 	<% end %>
-
-	<%= f.label :email %>
-	<%= f.email_field :email %>
-
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-
-	<%= f.submit "Login" %>
 <% end %>

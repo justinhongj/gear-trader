@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index', as: :home
 
 
-  get 'users/' => "users#index", as: :users
+  get 'users/' => 'users#index', as: :users
 
   get 'users/new' => 'users#new', as: :new_user
 
@@ -18,5 +18,34 @@ Rails.application.routes.draw do
 
 
   get 'targets/' => 'targets#index', as: :profile
+
+
+  get 'posts/' => 'posts#index', as: :posts
+
+  get 'posts/new' => 'posts#new', as: :new_post
+
+  post 'posts/' => 'posts#create'
+
+  get 'posts/edit' => 'posts#edit', as: :edit_post
+
+  patch 'posts/' => 'posts#update'
+
+  get 'posts/guitars' => 'posts#guitars', as: :guitars
+
+  get 'posts/bass' => 'posts#bass', as: :bass
+
+  get 'posts/amplifiers' => 'posts#amplifiers', as: :amplifiers
+
+  get 'posts/drums' => 'posts#drums', as: :drums
+
+  get 'posts/effects' => 'posts#effects', as: :effects
+
+  get 'posts/keyboards' => 'posts#keyboards', as: :keyboards
+
+  get 'posts/live' => 'posts#live', as: :live
+
+  get 'posts/recording' => 'posts#recording', as: :recording
+
+  get 'posts/:id' => 'posts#show', as: :post
 
 end
