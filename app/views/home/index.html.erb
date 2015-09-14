@@ -1,13 +1,9 @@
-<h1>Home Page</h1>
+<div>
+	<h1>New Posts</h1>
 
-<% flash.each do |key,value|  %>
-    <div class="<%= key %>" > <%= value %> </div>
-<% end %>
+</div>
 
-<%= link_to "Register", new_user_path  %>
+<div>
+	<h1>Departments</h1>
 
-<% if current_user  %>
-  <%= link_to "Logout", destroy_session_path %>
-<% else %>
-    <%= link_to "Login", new_session_path %>
-<% end %>
+</div>

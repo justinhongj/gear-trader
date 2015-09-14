@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 	      session[:user_id] = user.id
 
 	      flash[:success] = 'you are signed in!'
-	      redirect_to users_path
+	      redirect_to home_path
 	    else
 	      #redirect back to the page
 	      flash[:error] = 'unable to sign you in'
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
 	def destroy
 		session[:user_id] = nil
 		flash[:error] = 'you have been logged out'
-		redirect_to users_path
+		redirect_to home_path
 	end
 
 	private

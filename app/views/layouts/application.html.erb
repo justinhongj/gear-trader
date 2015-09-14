@@ -7,6 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header>
+		<%= link_to "Gear Trader", home_path %>
+
+		<div id="login">
+			<% flash.each do |key,value|  %>
+			    <div class="<%= key %>" > <%= value %> </div>
+			<% end %>
+
+			<% if current_user  %>
+				<%= link_to current_user.username, profile_path %>
+			  	<%= link_to "Logout", destroy_session_path %>
+			<% else %>
+				<%= link_to "Register", new_user_path  %>
+			    <%= link_to "Login", new_session_path %>
+			<% end %>
+		</div>
+	</header>
 
 <%= yield %>
 

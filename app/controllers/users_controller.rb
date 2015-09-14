@@ -1,7 +1,7 @@
-class UsersController <ApplicationController
+class UsersController < ApplicationController
 
 	def index
-		
+
 	end
 
 	def new
@@ -11,9 +11,8 @@ class UsersController <ApplicationController
 	def create
 
 	  if User.create(user_params)
-	    #redicret to signed in
 	    flash[:success] = 'you are registered'
-	    redirect_to users_path
+	    redirect_to new_session_path
 	  else
 
 	    flash[:error] = 'registration has failed'
@@ -26,6 +25,6 @@ class UsersController <ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:email,:password,:password_confirmation)
+		params.require(:user).permit(:email,:password,:password_confirmation, :username, :address, :city, :state, :zipcode)
 	end
 end
