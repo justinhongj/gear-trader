@@ -1,2 +1,11 @@
-<h1></h1>
+<h1><%= @category.full_name %></h1>
 
+<% @posts.each do |post| %>
+	<div>
+		<p><%= post.title %></p>
+		<p><%= post.condition %></p>
+		<p>Description: <%= post.description %></p>
+		<p>Posted by: <%= User.find_by(id: post.user_id).username %></p>
+		<p>Trade Rating: <%= User.find_by(id: post.user_id).rating %></p>
+	</div>
+<% end %>
