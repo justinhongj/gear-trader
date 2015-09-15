@@ -48,6 +48,8 @@ Rails.application.routes.draw do
 
   get 'posts/recording' => 'posts#recording', as: :recording
 
+  get 'posts/microphones' => 'posts#microphones', as: :microphones
+
   get 'posts/:id' => 'posts#show', as: :post
 
 end

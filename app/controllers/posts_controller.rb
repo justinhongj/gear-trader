@@ -61,4 +61,8 @@ class PostsController < ApplicationController
 		@posts = Post.all
 	end
 
+	def microphones
+		@posts = Post.all
+	end
+
 end
