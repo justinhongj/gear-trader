@@ -5,6 +5,8 @@ gem 'pry-rails'
 
 gem 'bcrypt', '~>3.1.7'
 
+gem 'faker'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

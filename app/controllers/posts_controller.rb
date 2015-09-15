@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(params.require(:post).permit(:user_id, :title, :description, :condition, :wanted, :status, :category))
+		@post = Post.new(params.require(:post).permit(:user_id, :title, :description, :condition, :wanted, :status, :category_id))
 
 		if @post.save
 			redirect_to post_path(@post)
@@ -62,6 +62,10 @@ class PostsController < ApplicationController
 	end
 
 	def microphones
+		@posts = Post.all
+	end
+
+	def other
 		@posts = Post.all
 	end
 

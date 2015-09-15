@@ -2,3 +2,12 @@
 <p>Location: <%= @user.city %>, <%= @user.state %> </p>
 <p>Trade Rating: <%= @user.rating %> </p>
 
+<h3>My Posts</h3>
+<% @posts.each do |post| %>
+	<div>
+		<%= post.title %>
+		<% if post.category_id %><%= Category.find_by(id: post.category_id).full_name %><% end %>
+		<%= post.created_at %>
+		<%= post.status %>
+	</div>
+<% end %>

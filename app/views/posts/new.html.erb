@@ -4,19 +4,16 @@
         <div class="<%= key %>" > <%= value %> </div>
       <% end %>
 
-      <%= f.text_field :title, placeholder: "Title" %>
-<br>
-      <%= f.select :condition, [['--Condition--', ''], ['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']] %>
+      <%= f.text_field :title, placeholder: "Title", :size=>"50" %>
 <br>
       <%= f.text_field :description, placeholder: "Description", :size=>"150" %>
 <br>
       <%= f.text_field :wanted, placeholder: "Items Wanted", :size=>"150" %>
 <br>
-      <%= f.select :category, [['--Category--', ''], ['--Guitars--', ''], ['  Electric Guitars', 'eguitars'], ['  Acoustic Guitars', 'aguitars'],['  Classical Guitars', 'cguitars'], ['  Guitar Accessories', 'guitaracc'], ['--Bass--', ''],['  Electric Bass', 'ebass'], ['  Acoustic Bass', 'abass'], ['--Amplifiers--', ''], ['  Combos', 'combos'], ['  Tubes', 'tubes'], ['  Heads', 'heads'], ['  Cabinets', 'cabinets'], ['  Stacks', 'stacks'], ['  Preamps', 'preamps'], ['  Amp Accessories', 'ampacc'], ['--Effects--', ''], ['  Effects Pedals', 'epedals'], ['  Multi-Effects Pedals', 'mepedals'], ['  Bass Pedals', 'bpedals'], ['  Vocal Effects Pedals', 'vepedals'], ['  Effects Accessories', 'fxacc'], ['--Drums--', ''], ['  Acoustic Drums', 'adrums'], ['  Electric Drums', 'edrums'], ['  Cymbals', 'cymbals'], ['  Drum Accessories', 'drumacc'], ['  Percussion', 'percussion'], ['--Keyboards & MIDI', ''], ['  Digital Pianos', 'dpianos'], ['  Synthesizers', 'synthesizers'], ['  Workstations', 'workstations'], ['  MIDI Controllers', 'mcontrollers'], ['  MIDI Interfaces', 'minterfaces'], ['  Keyboard Accessories', 'keyacc'], ['--Live Sound--', ''], ['  Active PA Speakers', 'active'], ['  Passive PA Speakers', 'passive'], ['  Stage Monitors', 'stagemon'], ['  Power Amplifiers', 'poweramp'], ['  Subwoofers', 'subwoofers'], ['--Recording--', ''], ['  Studio Monitors', 'studiomon'], ['  Audio Interfaces', 'audioint'], ['  Audio Converters', 'audiocon'], ['  Software', 'software'], ['  Recording Accessories', 'recacc'], ['--Microphones--', ''], ['  Dynamic', 'dynamic'], ['  Condenser', 'condenser'], ['  Tube', 'tube'], ['  Ribbon', 'ribbon'], ['  Drum', 'drum'], ['  USB', 'usb'], ['  Microphone Accessories', 'micacc'], ['--Other--', ''], ['  Other', 'other']] %>
-<br>
+      <div><%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']], :prompt => 'Condition' %></div>
+      <div><%= f.collection_select :category_id, Category.all, :id, :full_name, :prompt => 'Category' %></div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :status, :value => "Available" %>
-
-
+<br>
       <%= f.submit "Create Post" %>
 <% end %>
