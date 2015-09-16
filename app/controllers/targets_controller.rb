@@ -3,7 +3,7 @@ class TargetsController < ApplicationController
 	before_action :authorize 
 
 	def index
-		@posts = Post.where(id: current_user.id)
+		@posts = Post.where(user_id: current_user.id)
 		@watches = Watch.where(user_id: current_user.id)
 
 	end

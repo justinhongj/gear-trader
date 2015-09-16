@@ -29,6 +29,10 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def destroy
+		
+	end
+
 	def guitars
 		@posts = Post.all
 	end

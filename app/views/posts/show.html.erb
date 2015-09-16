@@ -1,9 +1,13 @@
-<%= @post.title %><br>
-<%= @post.condition %><br>
-<%= @post.description %><br>
-<%= @post.wanted %><br>
+<p> <%= @post.title %> </p>
+<p> <%= @post.condition %> </p>
+<br>
+<p> <%= @post.description %> </p>
+<br>
+<p> <%= @post.wanted %> </p>
 <br>
 <%= link_to @post.user.username, user_path(@post.user) %><br>
 <p>Trade Rating: <%= @post.user.rating %></p>
-
-
+<br>
+<% if @post.user.id != current_user.id %>
+	<%= link_to "Make Trade Offer", new_trade_path(@post, :post_id => @post.id) %>
+<% end %>
