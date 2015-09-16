@@ -66,5 +66,10 @@ Rails.application.routes.draw do
 
   post 'trades/' => 'trades#create', as: :create_trade
 
+  patch 'trades/:id' => 'trades#update'
+
+
+  post 'watches/' => 'watches#create', as: :create_watch
+
 end
 

@@ -9,7 +9,6 @@
       <div><%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']], :prompt => 'Condition' %></div>
       <%= f.hidden_field :post_id, :value => @post_id %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :status, :value => "Pending" %>
 <br>
       <%= f.submit "Make Trade Offer" %>
 <% end %>
