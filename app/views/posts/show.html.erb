@@ -1,13 +1,15 @@
-<p> <%= @post.title %> </p>
+<h3> <%= @post.title %> </h3>
 <p> <%= @post.condition %> </p>
 <p> <%= @post.status %> </p>
 <br>
+<h4>Description</h4>
 <p> <%= @post.description %> </p>
 <br>
+<h4>Wanted</h4>
 <p> <%= @post.wanted %> </p>
 <br>
 
-<%= link_to @post.user.username, user_path(@post.user) %><br>
+<h4><%= link_to @post.user.username, user_path(@post.user) %></h4>
 <p>Trade Rating: <%= @post.user.rating %></p>
 <br>
 

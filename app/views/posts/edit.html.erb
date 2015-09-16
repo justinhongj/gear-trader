@@ -12,7 +12,6 @@
 <br>
       <div><%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']], :prompt => 'Condition' %></div>
       <div><%= f.collection_select :category_id, Category.all, :id, :full_name, :prompt => 'Category' %></div>
-      <div><%= f.select :status, [['Available', 'Available'], ['Closed', 'Closed']], :prompt => 'Status' %></div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :status, :value => "Available" %>
 <br>

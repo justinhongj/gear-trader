@@ -10,6 +10,8 @@
 		<div class="post-summary">
 			<div>
 				<p> <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %> | <%= link_to "Edit", edit_post_path(post) %> | <%= link_to post.title, post_path(post) %> </p>
+				<p> <%= post.description %> </p>
+				<p> <%= post.wanted %> </p>
 				<p> <%= post.created_at %> | <%= post.status %> </p>
 			</div>
 			<div>
