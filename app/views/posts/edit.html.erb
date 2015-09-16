@@ -1,0 +1,19 @@
+<%= form_for(@post) do |f| %>
+
+      <% flash.each do |key,value|  %>
+        <div class="<%= key %>" > <%= value %> </div>
+      <% end %>
+
+      <%= f.text_field :title, placeholder: "Title", :size=>"50" %>
+<br>
+      <%= f.text_field :description, placeholder: "Description", :size=>"150" %>
+<br>
+      <%= f.text_field :wanted, placeholder: "Items Wanted", :size=>"150" %>
+<br>
+      <div><%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']], :prompt => 'Condition' %></div>
+      <div><%= f.collection_select :category_id, Category.all, :id, :full_name, :prompt => 'Category' %></div>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :status, :value => "Available" %>
+<br>
+      <%= f.submit "Edit Post" %>
+<% end %>
