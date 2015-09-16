@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   patch 'posts/' => 'posts#update'
 
-  delete 'posts/' => 'posts#destroy', as: :delete_post
+  delete 'posts/:id' => 'posts#destroy'
 
   get 'posts/guitars' => 'posts#guitars', as: :guitars
 
