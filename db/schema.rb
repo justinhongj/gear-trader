@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915201053) do
+ActiveRecord::Schema.define(version: 20150916011543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20150915201053) do
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "trades", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.string   "description"
+    t.string   "condition"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "trades", ["post_id"], name: "index_trades_on_post_id", using: :btree
+  add_index "trades", ["user_id"], name: "index_trades_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
@@ -67,6 +80,8 @@ ActiveRecord::Schema.define(version: 20150915201053) do
 
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "trades", "posts"
+  add_foreign_key "trades", "users"
   add_foreign_key "watches", "posts"
   add_foreign_key "watches", "users"
 end
