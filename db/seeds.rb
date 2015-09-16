@@ -49,11 +49,14 @@ Category.create([
 	])
 
 50.times do
-	
+	User.create(username: Faker::Name.name, email: Faker::Internet.email, password: '123', address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zipcode: Faker::Address.zip, rating: Faker::Number.between(20, 100))
 end
 
-
-
+400.times do
+	condition = ['New', 'Used - Like New', 'Used - Good', 'Used - Acceptable', 'Refurbished']
+	status = ['Available', 'Closed']
+	Post.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, wanted: Faker::Lorem.paragraph, condition: condition.sample, status: status.sample, user_id: User.all.sample.id, category_id: Category.all.sample.id)
+end
 
 
 

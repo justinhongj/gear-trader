@@ -1,8 +1,8 @@
 <h1><%= @category.full_name %></h1>
 
 <% @posts.each do |post| %>
-	<div>
-		<p><%= post.title %></p>
+	<div class="post-summary">
+		<p><%= link_to post.title, post_path(post) %></p>
 		<p><%= post.condition %></p>
 		<p>Description: <%= post.description %></p>
 		<p>Posted by: <%= User.find_by(id: post.user_id).username %></p>
