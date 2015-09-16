@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 
-		if @post.update_attributes(params.require(:post).permit(:user_id, :title, :description, :condition, :wanted, :status, :category_id))
+		if @post.update_attributes(params.require(:post).permit(:user_id, :title, :description, :condition, :wanted, :category_id, :status))
 			redirect_to post_path(@post)
 		else
 			render :edit

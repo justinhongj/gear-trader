@@ -1,11 +1,23 @@
 <h1><%= @category.full_name %></h1>
 
-<% @posts.each do |post| %>
+<% @posts.where(status: 'Available').each do |post| %>
 	<div class="post-summary">
 		<p><%= link_to post.title, post_path(post) %></p>
-		<p><%= post.condition %></p>
+		<p><%= post.condition %> | <%= post.status %></p>
 		<p>Description: <%= post.description %></p>
 		<p>Posted by: <%= User.find_by(id: post.user_id).username %></p>
+		<p>Date Posted: <%= post.created_at %></p>
+		<p>Trade Rating: <%= User.find_by(id: post.user_id).rating %></p>
+	</div>
+<% end %>
+
+<% @posts.where(status: 'Closed').each do |post| %>
+	<div class="post-summary">
+		<p><%= link_to post.title, post_path(post) %></p>
+		<p><%= post.condition %> | <%= post.status %></p>
+		<p>Description: <%= post.description %></p>
+		<p>Posted by: <%= User.find_by(id: post.user_id).username %></p>
+		<p>Date Posted: <%= post.created_at %></p>
 		<p>Trade Rating: <%= User.find_by(id: post.user_id).rating %></p>
 	</div>
 <% end %>
