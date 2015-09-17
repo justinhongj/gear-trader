@@ -2,6 +2,7 @@
 
 <p>Location: <%= current_user.state %>, <%= current_user.city %> </p>
 <p>Trade Rating: <%= current_user.rating %> </p>
+<p> <%= link_to "Edit Profile", edit_user_path(current_user) %> </p>
 
 
 <div>
