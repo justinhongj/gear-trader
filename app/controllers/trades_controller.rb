@@ -8,9 +8,9 @@ class TradesController < ApplicationController
 	def create
 		@trade = Trade.new(params.require(:trade).permit(:user_id, :post_id, :description, :condition))
 
-		@watch = Watch.new(user_id: current_user.id, post_id: @trade.post_id)
+		# @watch = Watch.new(user_id: current_user.id, post_id: @trade.post_id)
 
-		@watch.save
+		# @watch.save
 
 		if @trade.save
 			redirect_to post_path(@trade.post_id)
@@ -22,7 +22,7 @@ class TradesController < ApplicationController
 	def update
 		@trade = Trade.find(params[:id])
 
-		if @trade.update_attributes(params.require(:trade).permit(:status))
+		if @trade.update_attributes(params.require(:trade).permit(:message))
 			redirect_to profile_path
 		else
 			redirect_to profile_path

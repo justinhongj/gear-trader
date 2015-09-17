@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916214543) do
+ActiveRecord::Schema.define(version: 20150917004936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 20150916214543) do
     t.string   "full_name"
     t.string   "department"
   end
+
+  create_table "chats", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "chat_id"
+  end
+
+  add_index "messages", ["chat_id"], name: "index_messages_on_chat_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -47,10 +63,21 @@ ActiveRecord::Schema.define(version: 20150916214543) do
     t.string   "condition"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "status"
   end
 
   add_index "trades", ["post_id"], name: "index_trades_on_post_id", using: :btree
   add_index "trades", ["user_id"], name: "index_trades_on_user_id", using: :btree
+
+  create_table "user_chats", force: :cascade do |t|
+    t.integer  "chat_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_chats", ["chat_id"], name: "index_user_chats_on_chat_id", using: :btree
+  add_index "user_chats", ["user_id"], name: "index_user_chats_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -77,10 +104,14 @@ ActiveRecord::Schema.define(version: 20150916214543) do
   add_index "watches", ["post_id"], name: "index_watches_on_post_id", using: :btree
   add_index "watches", ["user_id"], name: "index_watches_on_user_id", using: :btree
 
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
   add_foreign_key "trades", "posts"
   add_foreign_key "trades", "users"
+  add_foreign_key "user_chats", "chats"
+  add_foreign_key "user_chats", "users"
   add_foreign_key "watches", "posts"
   add_foreign_key "watches", "users"
 end

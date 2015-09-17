@@ -68,7 +68,23 @@
 	<% end %>
 </div>
 
-
+<div>
+	<h2>My Trade Offers</h2>
+	<% @trades.each do |trade| %>
+		<% post = Post.find_by(id: trade.post_id) %>
+		<% user = User.find_by(id: post.user_id) %>
+		<div class="post-summary">
+			<h3> <%= link_to post.title, post_path(post) %> | <%= post.status %> </h3>
+			<p> <%= link_to user.username, user_path(user) %> | Trade Rating: <%= user.rating %> </p>
+			<p> <%= post.description %> </p>
+			<p> <%= post.wanted %> </p>
+			<p> <%= post.created_at %> </p>
+			<h3> My Trade Offer</h3>
+			<p> <%= trade.description %> </p>
+			<p> <%= trade.condition %> </p>
+		</div>
+	<% end %>
+</div>
 
 
 

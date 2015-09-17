@@ -71,5 +71,39 @@ Rails.application.routes.draw do
 
   post 'watches/' => 'watches#create', as: :create_watch
 
+
+  post 'chats/' => 'chats#create', as: :create_chat
+
+  get 'chats/:id' => 'chats#show', as: :chat
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
