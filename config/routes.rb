@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-
-  get '/' => 'home#index', as: :home
-
+  
 
   get 'users/' => 'users#index', as: :users
 
