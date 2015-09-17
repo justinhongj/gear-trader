@@ -8,10 +8,15 @@ class ChatsController < ApplicationController
 			UserChat.where(user_id: @from.id).each  do |userchat|
 				UserChat.where(chat_id: userchat.chat_id).each do |chat|
 					if chat.user_id == @to.id
-						redirect_to chat_path(chat.chat_id)
+						redirect_to chat_path(chat.chat_id) and return
 					end
 				end
 			end
+			@new_chat = Chat.new
+			@new_chat.save
+			UserChat.new(chat_id: @new_chat.id, user_id: @from.id).save
+			UserChat.new(chat_id: @new_chat.id, user_id: @to.id).save
+			redirect_to chat_path(@new_chat.id) and return	
 		else
 			@new_chat = Chat.new
 			@new_chat.save
