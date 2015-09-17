@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'post#index'
+  root 'posts#index'
 
 
   get 'users/' => 'users#index', as: :users
