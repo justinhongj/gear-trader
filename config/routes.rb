@@ -68,13 +68,20 @@ Rails.application.routes.draw do
 
   patch 'trades/:id' => 'trades#update'
 
+  delete 'trades/:id' => 'trades#destroy', as: :delete_trade
+
 
   post 'watches/' => 'watches#create', as: :create_watch
+
+  delete 'watches/:id' => 'watches#destroy', as: :delete_watch
 
 
   post 'chats/' => 'chats#create', as: :create_chat
 
   get 'chats/:id' => 'chats#show', as: :chat
+
+
+  post 'messages/' => 'messages#create', as: :create_message
 
 end
 

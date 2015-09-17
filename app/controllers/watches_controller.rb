@@ -6,6 +6,12 @@ class WatchesController < ApplicationController
 		if @watch.save
 			redirect_to post_path(@watch.post_id)
 		end
+	end
 
+	def destroy
+		@watch = Watch.find(params[:id])
+		@watch.destroy
+
+		redirect_to profile_path
 	end
 end

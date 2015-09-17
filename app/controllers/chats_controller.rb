@@ -42,6 +42,16 @@ class ChatsController < ApplicationController
 
 	def show
 		@from = User.find(current_user.id)
-		@to = User.find_by(id: UserChat.where(chat_id: params[:id]).second.user_id)
+
+		if UserChat.where(chat_id: params[:id]).first.user_id == current_user.id
+			@to = User.find(UserChat.where(chat_id: params[:id]).second.user_id)
+		else
+			@to = User.find(UserChat.where(chat_id: params[:id]).first.user_id)
+		end
+
+		@messages = Message.all
+		@message = Message.new
+
+		# @to = User.find_by(id: UserChat.where(chat_id: params[:id]).second.user_id)
 	end
 end

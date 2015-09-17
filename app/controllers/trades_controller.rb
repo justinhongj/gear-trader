@@ -29,4 +29,11 @@ class TradesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@trade = Trade.find(params[:id])
+		@trade.destroy
+
+		redirect_to profile_path
+	end
+
 end

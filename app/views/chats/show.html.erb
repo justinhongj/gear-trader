@@ -1,2 +1,29 @@
 <h1> Converstaion with <%= @to.username %> </h1>
 
+<div>
+	<% @messages.where(chat_id: params[:id]).each do |message| %>
+		<% if message.user_id == @from.id %>
+			<div class="msg-container">
+				<div class="msg">
+					<p class="msg-body"><%= message.body %></p>
+					<p class="msg-author"><%= @from.username %></p>
+				</div>
+			</div>
+		<% elsif message.user_id == @to.id %>
+			<div class="msg-container">
+				<div class="msg">
+					<p class="msg-body"><%= message.body %></p>
+					<p class="msg-author"><%= @to.username %></p>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
+<%= form_for @message, url: create_message_path do |f| %>
+	<%= f.text_field :body, placeholder: "Type new message", :size=>"150" %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :chat_id, :value => params[:id] %>
+	<br>
+	<%= f.submit "Send" %>
+<% end %>

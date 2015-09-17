@@ -1,6 +1,7 @@
 <h1> <%= @user.username %> </h1>
 <p>Location: <%= @user.city %>, <%= @user.state %> </p>
 <p>Trade Rating: <%= @user.rating %> </p>
+<%= button_to "Send Message", {:controller => 'chats', :action => 'create', :user_id => @user.id}, :method => :post %>
 
 <h3><%= @user.username %>'s Posts</h3>
 <% @posts.each do |post| %>
