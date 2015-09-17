@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'targets/' => 'targets#index', as: :profile
 
 
-  get 'posts/' => 'posts#index', as: :home
+  get '/' => 'posts#index', as: :home
 
   get 'posts/new' => 'posts#new', as: :new_post
 

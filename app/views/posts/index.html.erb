@@ -5,18 +5,143 @@
 				<h1>Departments</h1>
 			</div>
 			<div id="departments">
-				<div class="list-group">
-					<strong><%= link_to "Guitars", guitars_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Bass Guitars", bass_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Amplifiers", amplifiers_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Effects", effects_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Drums & Percussion", drums_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Keyboards & MIDI", keyboards_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Live Sound", live_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Recording", recording_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Microphones", microphones_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "Other", other_path, {:class => 'list-group-item list-group-item-info'} %></strong>
-					<strong><%= link_to "All Listings", posts_path, {:class => 'list-group-item list-group-item-info'} %></strong>
+				<div class="btn-group-vertical" role="group" aria-label="...">
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Guitars
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Electric Guitars", category_path(Category.find_by(name: 'eguitar')) %></li>
+					    	<li><%= link_to "Acoustic Guitars", category_path(Category.find_by(name: 'aguitar')) %></li>
+					    	<li><%= link_to "Classical Guitars", category_path(Category.find_by(name: 'cguitar')) %></li>
+					    	<li><%= link_to "Guitar Accessories", category_path(Category.find_by(name: 'guitaracc')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Bass Guitars
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Electric Bass", category_path(Category.find_by(name: 'ebass')) %></li>
+					    	<li><%= link_to "Acoustic Bass", category_path(Category.find_by(name: 'abass')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Amplifiers
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Combos", category_path(Category.find_by(name: 'combos')) %></li>
+					    	<li><%= link_to "Tubes", category_path(Category.find_by(name: 'tubes')) %></li>
+					    	<li><%= link_to "Heads", category_path(Category.find_by(name: 'heads')) %></li>
+					    	<li><%= link_to "Cabinets", category_path(Category.find_by(name: 'cabinets')) %></li>
+					    	<li><%= link_to "Stacks", category_path(Category.find_by(name: 'stacks')) %></li>
+					    	<li><%= link_to "Preamps", category_path(Category.find_by(name: 'preamps')) %></li>
+					    	<li><%= link_to "Amp Accessories", category_path(Category.find_by(name: 'ampacc')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Effects
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Effects Pedals", category_path(Category.find_by(name: 'epedals')) %></li>
+					    	<li><%= link_to "Mutli-Effects Pedals", category_path(Category.find_by(name: 'mepedals')) %></li>
+					    	<li><%= link_to "Bass Pedals", category_path(Category.find_by(name: 'bpedals')) %></li>
+					    	<li><%= link_to "Vocal Effects Pedals", category_path(Category.find_by(name: 'vepedals')) %></li>
+					    	<li><%= link_to "Effects Accessories", category_path(Category.find_by(name: 'fxacc')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Drums & Percussion
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Acoustic Drums", category_path(Category.find_by(name: 'adrums')) %></li>
+					    	<li><%= link_to "Electric Drums", category_path(Category.find_by(name: 'edrums')) %></li>
+					    	<li><%= link_to "Cymbals", category_path(Category.find_by(name: 'cymbals')) %></li>
+					    	<li><%= link_to "Percussion", category_path(Category.find_by(name: 'percussion')) %></li>
+					    	<li><%= link_to "Drum Accessories", category_path(Category.find_by(name: 'drumacc')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Keyboards & MIDI
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Digital Pianos", category_path(Category.find_by(name: 'dpianos')) %></li>
+					    	<li><%= link_to "Synthesizers", category_path(Category.find_by(name: 'synthesizers')) %></li>
+					    	<li><%= link_to "Workstations", category_path(Category.find_by(name: 'workstations')) %></li>
+					    	<li><%= link_to "MIDI Controllers", category_path(Category.find_by(name: 'mcontrollers')) %></li>
+					    	<li><%= link_to "MIDI Interfaces", category_path(Category.find_by(name: 'minterfaces')) %></li>
+					    	<li><%= link_to "Keyboard Accessories", category_path(Category.find_by(name: 'keyacc')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Live Sound
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Active PA Speakers", category_path(Category.find_by(name: 'active')) %></li>
+					    	<li><%= link_to "Passive PA Speakers", category_path(Category.find_by(name: 'passive')) %></li>
+					    	<li><%= link_to "Stage Monitors", category_path(Category.find_by(name: 'stagemon')) %></li>
+					    	<li><%= link_to "Power Amplifiers", category_path(Category.find_by(name: 'poweramp')) %></li>
+					    	<li><%= link_to "Subwoofers", category_path(Category.find_by(name: 'subwoofers')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Recording
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Studio Monitors", category_path(Category.find_by(name: 'studiomon')) %></li>
+					    	<li><%= link_to "Audio Interfaces", category_path(Category.find_by(name: 'audioint')) %></li>
+					    	<li><%= link_to "Audio Converters", category_path(Category.find_by(name: 'audiocon')) %></li>
+					    	<li><%= link_to "Software", category_path(Category.find_by(name: 'software')) %></li>
+					    	<li><%= link_to "Recording Accessories", category_path(Category.find_by(name: 'recacc')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Microphones
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Dynamic", category_path(Category.find_by(name: 'dynamic')) %></li>
+					    	<li><%= link_to "Condenser", category_path(Category.find_by(name: 'condenser')) %></li>
+					    	<li><%= link_to "Tube", category_path(Category.find_by(name: 'tube')) %></li>
+					    	<li><%= link_to "Ribbon", category_path(Category.find_by(name: 'ribbon')) %></li>
+					    	<li><%= link_to "Drum", category_path(Category.find_by(name: 'drum')) %></li>
+					    	<li><%= link_to "USB", category_path(Category.find_by(name: 'usb')) %></li>
+					    	<li><%= link_to "Microphone Accessories", category_path(Category.find_by(name: 'micacc')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Miscellaneous
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "Miscellaneous", category_path(Category.find_by(name: 'other')) %></li>
+					    </ul>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    All Listings
+						    <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><%= link_to "All Listings", category_path(Category.find_by(name: 'eguitar')) %></li>
+					    </ul>
+					</div>
 				</div>
 			</div>
 		</div>

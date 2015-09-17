@@ -15,7 +15,7 @@ Category.create([
 	{name: 'epedals', full_name: 'Effects Pedals', department: 'effects'},
 	{name: 'mepedals', full_name: 'Multi-Effects Pedals', department: 'effects'},
 	{name: 'bpedals', full_name: 'Bass Pedals', department: 'effects'},
-	{name: 'vepdeals', full_name: 'Vocal Effects Pedals', department: 'effects'},
+	{name: 'vepedals', full_name: 'Vocal Effects Pedals', department: 'effects'},
 	{name: 'fxacc', full_name: 'Effects Accessories', department: 'effects'},
 	{name: 'adrums', full_name: 'Acoustic Drums', department: 'drums'},
 	{name: 'edrums', full_name: 'Electric Drums', department: 'drums'},
