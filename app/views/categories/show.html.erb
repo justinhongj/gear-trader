@@ -1,23 +1,35 @@
-<h1><%= @category.full_name %></h1>
+<div class="page-header">
+	<h1><%= @category.full_name %></h1>
+</div>
 
 <% @posts.where(status: 'Available').each do |post| %>
 	<div class="post-summary">
-		<p><%= link_to post.title, post_path(post) %></p>
-		<p><%= post.condition %> | <%= post.status %></p>
-		<p>Description: <%= post.description %></p>
-		<p>Posted by: <%= User.find_by(id: post.user_id).username %></p>
-		<p>Date Posted: <%= post.created_at %></p>
-		<p>Trade Rating: <%= User.find_by(id: post.user_id).rating %></p>
+		<div class="panel panel-default">
+			<div class="panel-heading"><h3><%= link_to post.title, post_path(post) %></h3></div>
+			<div class="panel-body">
+				<p><%= post.condition %> | <span class="text-success"><%= post.status %></span></p>
+				<p><strong>Description:</strong></p>
+				<p><%= post.description %></p>
+				<p>Posted by: <%= User.find_by(id: post.user_id).username %></p>
+				<p>Date Posted: <%= post.created_at %></p>
+				<p>Trade Rating: <%= User.find_by(id: post.user_id).rating %></p>
+			</div>
+		</div>
 	</div>
 <% end %>
 
 <% @posts.where(status: 'Closed').each do |post| %>
 	<div class="post-summary">
-		<p><%= link_to post.title, post_path(post) %></p>
-		<p><%= post.condition %> | <%= post.status %></p>
-		<p>Description: <%= post.description %></p>
-		<p>Posted by: <%= User.find_by(id: post.user_id).username %></p>
-		<p>Date Posted: <%= post.created_at %></p>
-		<p>Trade Rating: <%= User.find_by(id: post.user_id).rating %></p>
+		<div class="panel panel-default">
+			<div class="panel-heading"><h3><%= link_to post.title, post_path(post) %></h3></div>
+			<div class="panel-body">
+				<p><%= post.condition %> | <span class="text-danger"><%= post.status %></span></p>
+				<p><strong>Description:</strong></p>
+				<p><%= post.description %></p>
+				<p>Posted by: <%= User.find_by(id: post.user_id).username %></p>
+				<p>Date Posted: <%= post.created_at %></p>
+				<p>Trade Rating: <%= User.find_by(id: post.user_id).rating %></p>
+			</div>
+		</div>
 	</div>
 <% end %>

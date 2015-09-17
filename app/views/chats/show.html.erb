@@ -21,9 +21,11 @@
 </div>
 
 <%= form_for @message, url: create_message_path do |f| %>
-	<%= f.text_field :body, placeholder: "Type new message", :size=>"150" %>
+	<div class="form-group">
+		<%= f.text_field :body, placeholder: "Type new message", :size=>"150", class: "form-control" %>
+	</div>
 	<%= f.hidden_field :user_id, :value => current_user.id %>
 	<%= f.hidden_field :chat_id, :value => params[:id] %>
 	<br>
-	<%= f.submit "Send" %>
+	<%= f.submit "Send", class: "btn btn-default" %>
 <% end %>

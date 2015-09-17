@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'home#index', as: :home
+  root 'home#index'
+
+  get '/' => 'home#index', as: :home
 
 
   get 'users/' => 'users#index', as: :users
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'users/:id' => 'users#show', as: :user
 
-  post 'users/' => 'users#create'
+  post 'users/' => 'users#create', as: :create_user
 
 
   get 'sessions/new' => 'sessions#new', as: :new_session

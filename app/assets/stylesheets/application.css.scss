@@ -18,24 +18,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#login {
-	display: inline-block;
-	float: right;
-}
-
-#logo {
-	text-decoration: none;
-	font-size: 2em;
-}
 
 .post-summary {
-	border: 1px solid black;
 	margin: 5px 25px 5px 25px;
 	padding-left: 10px;
 }
 
 .trade-offers {
-	border: 1px solid black;
 	margin: 5px 25px 5px 60px;
 	padding-left: 10px;
 }
@@ -44,7 +33,13 @@
 	padding-left: 25px;
 }
 
+.col-xs-2 {
+	position: fixed;
+}
 
+.col-xs-10 {
+	float: right;
+}
 
 
 
