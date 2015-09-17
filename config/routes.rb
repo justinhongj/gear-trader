@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'post#index'
 
-  get 'home/index' => 'home#index', as: :home
-  
 
   get 'users/' => 'users#index', as: :users
 
@@ -28,7 +26,7 @@ Rails.application.routes.draw do
   get 'targets/' => 'targets#index', as: :profile
 
 
-  get 'posts/' => 'posts#index', as: :posts
+  get 'posts/' => 'posts#index', as: :home
 
   get 'posts/new' => 'posts#new', as: :new_post
 
