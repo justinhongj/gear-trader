@@ -1,21 +1,45 @@
-<h3> <%= @post.title %> </h3>
-<p> <%= @post.condition %> </p>
-<p> <%= @post.status %> </p>
-<br>
-<h4>Description</h4>
-<p> <%= @post.description %> </p>
-<br>
-<h4>Wanted</h4>
-<p> <%= @post.wanted %> </p>
-<br>
-
-<h4><%= link_to @post.user.username, user_path(@post.user) %></h4>
-<p>Trade Rating: <%= @post.user.rating %></p>
-<%= button_to "Send Message", {:controller => 'chats', :action => 'create', :user_id => @post.user.id}, :method => :post, :class => "btn btn-primary" %>
-<br>
-
-<% if @post.user.id != current_user.id && @post.status == 'Available' %>
-	<%= button_to "Watch This Post", {:controller => 'watches', :action => 'create', :user_id => current_user.id, :post_id => @post.id}, :method => :post, :class => "btn btn-primary" %> 
+<div class="page-header">
+	<h1> <%= @post.title %> </h1>
+</div>
+<div class="container">
+	<h4> <%= @post.condition %> | 
+		<% if @post.status == 'Available' %> 
+			<span class="text-success"><%= @post.status %></span>
+		<%else%>
+			<span class="text-danger"><%= @post.status %></span>
+		<%end%></h4>
 	<br>
-	<%= link_to "Make Trade Offer", new_trade_path(@post, :post_id => @post.id), :class => "btn btn-primary" %>
-<% end %>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Description</h4>
+		</div>
+		<div class="panel-body">
+			<p> <%= @post.description %> </p>
+		</div>
+	</div>
+	<br>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Wanted</h4>
+		</div>
+		<div class="panel-body">
+			<p> <%= @post.wanted %> </p>
+		</div>
+	</div>
+	<br>
+
+	<% if @post.user.id != current_user.id && @post.status == 'Available' %>
+		<%= link_to "Watch This Post", {:controller => 'watches', :action => 'create', :user_id => current_user.id, :post_id => @post.id}, :method => :post, :class => "btn btn-primary" %> 
+		
+		<%= link_to "Make Trade Offer", new_trade_path(@post, :post_id => @post.id), :class => "btn btn-primary" %>
+	<% end %>
+	<br>
+	<br>
+
+	<div class="container">
+				<h3>Posted By:</h3>
+				<h4><%= link_to @post.user.username, user_path(@post.user) %></h4>
+				<p>Trade Rating: <%= @post.user.rating %></p>
+				<%= button_to "Send Message", {:controller => 'chats', :action => 'create', :user_id => @post.user.id}, :method => :post, :class => "btn btn-primary" %>
+	</div>
+</div>
