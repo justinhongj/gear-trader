@@ -1,14 +1,15 @@
+<div class="page-header">
+	<h1>Make Trade Offer</h1>
+</div>
+
 <%= form_for @trade, url: {action: 'create'} do |f| %>
 
-      <% flash.each do |key,value|  %>
-        <div class="<%= key %>" > <%= value %> </div>
-      <% end %>
-
-      <%= f.text_field :description, placeholder: "Description", :size=>"150" %>
+	<div class="form-group">
+    	<%= f.text_field :description, placeholder: "Description", :size=>"150", class: 'form-control' %>
+    </div>
+    <div><%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']], :prompt => 'Condition' %></div>
+	<%= f.hidden_field :post_id, :value => @post_id %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
 <br>
-      <div><%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']], :prompt => 'Condition' %></div>
-      <%= f.hidden_field :post_id, :value => @post_id %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-<br>
-      <%= f.submit "Make Trade Offer" %>
+	<%= f.submit "Make Trade Offer", class: 'btn btn-primary' %>
 <% end %>

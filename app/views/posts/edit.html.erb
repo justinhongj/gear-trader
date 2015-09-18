@@ -1,19 +1,27 @@
+<div class="page-header">
+      <h1>Edit Post</h1>
+</div>
+
 <%= form_for(@post) do |f| %>
 
-      <% flash.each do |key,value|  %>
-        <div class="<%= key %>" > <%= value %> </div>
-      <% end %>
-
-      <%= f.text_field :title, placeholder: "Title", :size=>"50" %>
-<br>
-      <%= f.text_field :description, placeholder: "Description", :size=>"150" %>
-<br>
-      <%= f.text_field :wanted, placeholder: "Items Wanted", :size=>"150" %>
-<br>
-      <div><%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']], :prompt => 'Condition' %></div>
-      <div><%= f.collection_select :category_id, Category.all, :id, :full_name, :prompt => 'Category' %></div>
-      <div><%= f.select :status, [['Available', 'Available'], ['Closed', 'Closed']], :prompt => 'Status' %></div>
+      <div class="form-group">
+            <%= f.text_field :title, placeholder: "Title", :size=>"50", class: "form-control" %>
+      </div>
+      <div class="form-group">
+            <%= f.text_field :description, placeholder: "Description", :size=>"150", class: "form-control" %>
+      </div>
+      <div class="form-group">
+            <%= f.text_field :wanted, placeholder: "Items Wanted", :size=>"150", class: "form-control" %>
+      </div>
+      <div class="form-group">
+            <%= f.select :condition, [['New', 'New'], ['Used - Like New', 'Used - Like New'], ['Used - Good', 'Used - Good'], ['Used - Acceptable', 'Used - Acceptable'], ['Refurbished', 'Refurbished']], :prompt => 'Condition' %>
+      </div>
+      <div class="form-group">
+            <%= f.collection_select :category_id, Category.all, :id, :full_name, :prompt => 'Category' %>
+      </div>
+      <div class="form-group">
+            <%= f.select :status, [['Available', 'Available'], ['Closed', 'Closed']], :prompt => 'Status' %>
+      </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-<br>
-      <%= f.submit "Edit Post" %>
+      <%= f.submit "Edit Post", class: 'btn btn-primary' %>
 <% end %>

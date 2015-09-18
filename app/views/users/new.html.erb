@@ -3,11 +3,8 @@
 </div>
 <br>
 
-<%= form_for@user, :html => {class: "form"}, url: create_user_path do |f| %>
+<%= form_for @user, url: create_user_path do |f| %>
 
-      <% flash.each do |key,value|  %>
-        <div class="<%= key %>" > <%= value %> </div>
-      <% end %>
       <div class="form-group">
             <%= f.text_field :username, placeholder: "Username", class: 'form-control' %>
       </div>

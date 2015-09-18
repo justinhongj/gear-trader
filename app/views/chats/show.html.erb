@@ -1,31 +1,37 @@
-<h1> Converstaion with <%= @to.username %> </h1>
-
-<div>
-	<% @messages.where(chat_id: params[:id]).each do |message| %>
-		<% if message.user_id == @from.id %>
-			<div class="msg-container">
-				<div class="msg">
-					<p class="msg-body"><%= message.body %></p>
-					<p class="msg-author"><%= @from.username %></p>
-				</div>
-			</div>
-		<% elsif message.user_id == @to.id %>
-			<div class="msg-container">
-				<div class="msg">
-					<p class="msg-body"><%= message.body %></p>
-					<p class="msg-author"><%= @to.username %></p>
-				</div>
-			</div>
-		<% end %>
-	<% end %>
+<div class="page-header">
+	<h1> Converstaion with <%= @to.username %> </h1>
 </div>
 
-<%= form_for @message, url: create_message_path do |f| %>
-	<div class="form-group">
-		<%= f.text_field :body, placeholder: "Type new message", :size=>"150", class: "form-control" %>
+<div class="container">
+	<div class="jumbotron">
+		<% @messages.where(chat_id: params[:id]).each do |message| %>
+			<% if message.user_id == @from.id %>
+				<div class="msg-container-from panel panel-default">
+					<div class="msg-from panel-body bg-info">
+						<h3><%= message.body %></h3>
+						<%= @from.username %>
+					</div>
+				</div>
+			<% elsif message.user_id == @to.id %>
+				<div class="msg-container-to panel panel-default">
+					<div class="msg-to panel-body bg-success">
+						<h3><%= message.body %></h3>
+						<%= @to.username %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
 	</div>
-	<%= f.hidden_field :user_id, :value => current_user.id %>
-	<%= f.hidden_field :chat_id, :value => params[:id] %>
-	<br>
-	<%= f.submit "Send", class: "btn btn-default" %>
-<% end %>
+</div>
+
+<div class="container">
+	<%= form_for @message, url: create_message_path do |f| %>
+		<div class="form-group">
+			<%= f.text_field :body, placeholder: "Type new message", :size=>"150", class: "form-control" %>
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+			<%= f.hidden_field :chat_id, :value => params[:id] %>
+			<br>
+			<%= f.submit "Send", class: "btn btn-primary pull-right" %>
+		</div>
+	<% end %>
+</div>
