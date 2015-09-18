@@ -1,0 +1,39 @@
+<div class="page-header">
+	<h1>Inbox</h1>
+</div>
+
+<div class="container">
+	<table class="table">
+		<thead>
+			<th>
+				<h3>View</h3>
+			</th>
+			<th>
+				<h3>User</h3>
+			</th>
+		</thead>
+		<tbody>
+			<% @userchats.each do |userchat| %>
+				<% chat = Chat.find(userchat.chat_id) %>
+				<tr>
+					<td>
+						<%= link_to "View", chat_path(chat), class: 'btn btn-primary' %>
+					</td>
+					<td>
+						<% if UserChat.where(chat_id: chat.id).first.user_id == current_user.id %>
+							<h4><%= User.find(UserChat.where(chat_id: chat.id).second.user_id).username %></h4>
+						<% else %>
+							<h4><%= User.find(UserChat.where(chat_id: chat.id).first.user_id).username %></h4>
+						<% end %>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

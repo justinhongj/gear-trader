@@ -82,6 +82,8 @@ Rails.application.routes.draw do
 
   post 'chats/' => 'chats#create', as: :create_chat
 
+  get 'chats/index' => 'chats#index', as: :chats
+
   get 'chats/:id' => 'chats#show', as: :chat
 
 

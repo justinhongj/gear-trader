@@ -54,4 +54,32 @@ class ChatsController < ApplicationController
 
 		# @to = User.find_by(id: UserChat.where(chat_id: params[:id]).second.user_id)
 	end
+
+	def index
+		@userchats = UserChat.where(user_id: current_user.id)
+	end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
