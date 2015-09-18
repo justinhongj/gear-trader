@@ -14,4 +14,7 @@ The profile page allows the user to quickly keep track of and manage their own p
 #Future Additions
 Unfortunately, the app does not yet support uploading images, but this is a priority to be implemented. 
 
-Smaller additions such as editing a user's profile, etc will also be implemented in future versions.
+Smaller additions such as leaving a Trade Rating for another user and adding a Comments section to each post will also be implemented, along with others.
+
+#Links
+Trello: https://trello.com/b/dTqkUBsg/gear-trader
