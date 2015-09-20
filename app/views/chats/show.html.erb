@@ -4,23 +4,25 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<% @messages.where(chat_id: params[:id]).each do |message| %>
-			<% if message.user_id == @from.id %>
-				<div class="msg-container-from panel panel-default">
-					<div class="msg-from panel-body bg-info">
-						<h3><%= message.body %></h3>
-						<%= @from.username %>
+		<div id="chatbox">
+			<% @messages.where(chat_id: params[:id]).each do |message| %>
+				<% if message.user_id == @from.id %>
+					<div class="msg-container-from panel panel-default">
+						<div class="msg-from panel-body bg-info">
+							<h5><%= message.body %></h5>
+							<p id="chat-author"><%= @from.username %></p>
+						</div>
 					</div>
-				</div>
-			<% elsif message.user_id == @to.id %>
-				<div class="msg-container-to panel panel-default">
-					<div class="msg-to panel-body bg-success">
-						<h3><%= message.body %></h3>
-						<%= @to.username %>
+				<% elsif message.user_id == @to.id %>
+					<div class="msg-container-to panel panel-default">
+						<div class="msg-to panel-body bg-success">
+							<h5><%= message.body %></h5>
+							<p id="chat-author"><%= @to.username %></p>
+						</div>
 					</div>
-				</div>
+				<% end %>
 			<% end %>
-		<% end %>
+		</div>
 	</div>
 </div>
 

@@ -60,3 +60,12 @@
 .msg-to {
 	text-align: left;
 }
+
+#chatbox {
+	height: 350px !important;
+	overflow: scroll;
+}
+
+#chat-author {
+	font-size: .8em;
+}
