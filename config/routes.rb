@@ -38,26 +38,6 @@ Rails.application.routes.draw do
 
   delete 'posts/:id' => 'posts#destroy'
 
-  get 'posts/guitars' => 'posts#guitars', as: :guitars
-
-  get 'posts/bass' => 'posts#bass', as: :bass
-
-  get 'posts/amplifiers' => 'posts#amplifiers', as: :amplifiers
-
-  get 'posts/drums' => 'posts#drums', as: :drums
-
-  get 'posts/effects' => 'posts#effects', as: :effects
-
-  get 'posts/keyboards' => 'posts#keyboards', as: :keyboards
-
-  get 'posts/live' => 'posts#live', as: :live
-
-  get 'posts/recording' => 'posts#recording', as: :recording
-
-  get 'posts/microphones' => 'posts#microphones', as: :microphones
-
-  get 'posts/other' => 'posts#other', as: :other
-
   get 'posts/:id' => 'posts#show', as: :post
 
 
@@ -88,6 +68,12 @@ Rails.application.routes.draw do
 
 
   post 'messages/' => 'messages#create', as: :create_message
+
+  namespace :api do
+    resources :posts, only: [:index, :show]
+    resources :users, only: [:index, :show, :create, :update, :destroy]
+    resources :messages, only: [:index, :show]
+  end
 
 end
 

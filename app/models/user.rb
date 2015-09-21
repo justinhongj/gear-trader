@@ -7,5 +7,9 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: { case_sensitive: false}
 
+  def as_json(options={})
+  	super(:except => [:password_digest, :address, :zipcode, :email])
+  end
+
 end
 
